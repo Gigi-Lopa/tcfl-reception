@@ -1,0 +1,40 @@
+<div class="container">
+    <% if (data.length > 0) { %>     
+        <% data.forEach(course => { %>
+            <% if (course.course_id >= 2000 && course.course_id <= 2999) { %>
+                <div class="q_row">
+                    <div class="fst-sec">
+                        <div class="name">
+                            <h3><%= course.course_name %> </h3>
+                        </div>
+                        <div class="mth-ops">
+                            <div class="number">
+                                <input type="text" value="0" name="query_numbers<%= course.course_id %>">
+                            </div>   
+                            <div class="add">
+                                <button class="btn btn-active"><span class="bi-plus-lg"></span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="scn-sec">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="customRadio<%= course.course_id %>" name="<%= course.course_name %><%= course.course_id %>" value="Registration" class="custom-control-input">
+                                <label class="custom-control-label" for="customRadio<%= course.course_id %>">Registration</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="customRadio<%= course.course_id %>1" name="<%= course.course_name %><%= course.course_id %>"value= "Enquiry" class="custom-control-input">
+                                <label class="custom-control-label" for="customRadio<%= course.course_id %>1">Enquiry</label>
+                            </div>
+                            <br>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="other" value="Other"placeholder ="Other"> 
+                            </div>
+                            <br>
+                            <button class="btn btn-active" value="onSave">Save</button>
+                        </div>
+                </div>
+                <br> <br>
+                <% } %>  
+        <% }) %>
+    <% } %>
+</div>

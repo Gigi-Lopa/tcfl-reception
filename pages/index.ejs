@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reception Desk</title>
+    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/vendor/boxicons/css/boxicons.css">
+    <link rel="stylesheet" href="/vendor/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/jquery-ui.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body onload = "preloader()">
+  <!-- START PRE LOADER-->  
+  <div id="preloader">
+    <div class="gify">
+
+    </div>
+  </div>
+  <style>
+    #preloader{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    background-size: cover;
+    z-index: 99999;
+  }
+  .gify{
+    background-image: url("/images/pink-preloader.gif");
+    background-position: center;
+    background-attachment: fixed;
+    height: 70%;
+    width:50%;
+  }
+  </style>
+  <script>
+    var preloadervar = document.getElementById("preloader")
+    function preloader(){
+       preloadervar.style.display = "none";
+       console.log("Display Gon");
+    }
+  </script>   
+<nav class="navbar navbar-expand-lg navbar-light nav-style">
+  <a class="navbar-brand" style="margin: right 0;" href="/home/"><img src="/images/kallyas-logo.svg" alt="TCFL LOGO" width="30%" height="30%" srcset=""></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+         <div class="nav-content">
+            <span class="bi-question-circle"></span>
+          </div>
+          <a class="nav-link item active" href="/home/">Queries</a>
+      </li>
+      <li class="nav-item">
+         <div class="nav-content">
+            <span class="bi-vector-pen"></span>
+          </div>
+          <a class="nav-link item" href="/rec/notes/">Notes</a>
+      </li>
+          <li class="nav-item">
+         <div class="nav-content">
+            <span class="bi-journal-bookmark" style="position: relative;bottom:10%"></span>
+          </div>
+          <a class="nav-link item" href="/course_details/">Course Details</a>
+      </li>
+       <li class="nav-item">
+         <div class="nav-content">
+            <span class="bi-journal-bookmark" style="position: relative;bottom:10%"></span>
+          </div>
+          <a class="nav-link item" href="/dashboard/">Dashboard</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="page-content">
+    <div class="container fst-section">
+        <div id="tabs">
+	<ul>
+		<li><a href="#tabs-1">General Queries</a></li>
+		<li><a href="#tabs-2">S/Courses</a></li>
+		<li><a href="#tabs-3">F/Course</a></li>
+	</ul>
+	<div id="tabs-1">
+      <div class="container">
+        <div class="page-tabs">
+          <div class="side-bars">
+              <button class="btn btn-tab btn-active" data-for-tab="1">Results</button>
+              <button class="btn btn-tab" data-for-tab="2">Student Portal</button>
+              <button class="btn btn-tab" data-for-tab="3">Impact Learning</button>
+              <button class="btn btn-tab" data-for-tab="4">Registration</button>
+              <button class="btn btn-tab" data-for-tab="5">Accounts</button>
+            </div>
+          <div class="data-tabs data-tabs-active" data-tab="1">
+            <form action="/create/q/results/post" method="POST">
+              <label for="exampleFormControlSelectq">Query Type</label>
+              <select class="form-control" id="exampleFormControlSelectq" name="query_type">
+                <option value="Missing Result">Missing Result</option>
+                <option value="Result Changed">Result Changed</option>
+                <option value="Wrong Module">Wrong Module</option>
+              </select>
+              <br>
+              <div class="form-group row">
+                <label for="inputPassword1" class="col-sm-2 col-form-label">Student No.</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputPassword1" name="student_ID">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputPassword2" class="col-sm-2 col-form-label">Module Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputPassword2" name="module_name">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea3">Short Description</label>
+                <textarea class="form-control" id="exampleFormControlTextarea3" rows="3" name="desc"></textarea>
+              </div>
+              <button class="btn btn-danger">Submit</button>
+            </form>
+          </div>
+          <div class="data-tabs" data-tab="2">
+            <form action="/create/q/student_affairs/post" method="POST">
+              <label for="exampleFormControlSelects">Query Type</label>
+              <select class="form-control" id="exampleFormControlSelects" name="query_type">
+                <option value="Missing Module">Missing Module</option>
+                <option value="Result Changed">Result Changed</option>
+                <option value="Wrong Module">Wrong Module</option>
+                <option value="Course Work">Course Work</option>
+              </select>
+              <br>
+              <div class="form-group row">
+                <label for="inputPasswordks" class="col-sm-2 col-form-label">Student No.</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputPasswordks" name="student_ID">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputPasswordll" class="col-sm-2 col-form-label">Module Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputPasswordll" name="module_name">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea4">Short Description</label>
+                <textarea class="form-control" id="exampleFormControlTextarea4" rows="3" name="desc"></textarea>
+              </div>
+              <button class="btn btn-danger">Submit</button>
+            </form>
+          </div>
+          <div class="data-tabs" data-tab="3">
+            <form action="/create/q/student_affairs/post" method="POST">
+              <label for="exampleFormControlSelectg">Query Type</label>
+              <select class="form-control" id="exampleFormControlSelectg" name="query_type">
+                <option value="Forgot Password">Forgot Password</option>
+                <option value="Cant Acces Site">Cant Acces Site</option>
+              </select>
+              <br>
+              <div class="form-group row">
+                <label for="inputPasswordq" class="col-sm-2 col-form-label">Student No.</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputPasswordq" name="student_ID">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputPasswordm" class="col-sm-2 col-form-label">Module Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputPasswordm" name="module_name">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea5">Short Description</label>
+                <textarea class="form-control" id="exampleFormControlTextarea5" rows="3" name="desc"></textarea>
+              </div>
+              <button class="btn btn-danger">Submit</button>
+            </form>
+          </div>
+          <div class="data-tabs" data-tab="4">
+            <form action="/create/q/student_affairs/post" method="POST">
+              <label for="exampleFormControlSelectsun">Query Type</label>
+              <select class="form-control" id="exampleFormControlSelectsun" name="query_type">
+                <option value="Student Registration">Student Registration</option>
+                <option value="Semester Registration">Semester Registration</option>
+                <option value="Exam Registration">Exam Registration</option>
+              </select>
+              <br>
+              <div class="form-group row">
+                <label for="inputPassworda" class="col-sm-2 col-form-label">Student No.</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputPassworda" name="student_ID">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputPassword00" class="col-sm-2 col-form-label">Module Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputPassword00" name="module_name">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea">Short Description</label>
+                <textarea class="form-control" id="exampleFormControlTextarea" rows="3" name="desc"></textarea>
+              </div>
+              <button class="btn btn-danger">Submit</button>
+            </form>
+          </div>
+          <div class="data-tabs" data-tab="5">
+            <form action="/create/q/accounts/post" method="POST">
+              <label for="exampleFormControlSelect">Query Type</label>
+              <select class="form-control" id="exampleFormControlSelect" name="query_type">
+                <option value="Missing-Module">Clearance</option>
+                <option value="Result-changed">Blocked Results</option>
+              </select>
+              <br>
+              <div class="form-group row">
+                <label for="inputPasswordma" class="col-sm-2 col-form-label">Student No.</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputPasswordma" name="student_ID">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputPasswordis" class="col-sm-2 col-form-label">Module Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputPasswordis" name="module_name">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea2">Short Description</label>
+                <textarea class="form-control" id="exampleFormControlTextarea2" rows="3" name="desc"></textarea>
+              </div>
+              <button class="btn btn-danger">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="tabs-2">
+      <%- include("simple_cards") %> 
+      <br>
+      </div>
+      <div id="tabs-3">
+        <%- include("full_courses")%>
+        <br>
+       <div class="container">
+      <button class="btn btn-danger btn-lg" name ="SHCWork" onclick="sendWork()">Submit Work</button>
+      </div>
+      </div>
+  </div>
+</div>
+<div class="container scnd-section">
+  <b><h3>Note Pad <span class="bi-vector-pen"></span></h3></b>
+  <form action="/sav/tas3" method="POST">
+    <div class="input-group">
+      <input type="text" name="note_name" class="form-control" placeholder="Note Name">
+    </div>
+    <br>
+    <div class="input-grp">
+      <textarea class="form-control note-pad"name="note" rows = "14.5"id="q-quest"></textarea>
+    </div>
+    <br>
+  <Button class=" btn btn-danger q-submit">Post <span class=" bi-telegram"></span></Button>
+  </form>
+</div>
+</div>
+<script src="/vendor/jquery/jquery.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.js"></script>
+<script src="/js/jquery-ui.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

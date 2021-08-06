@@ -1,0 +1,30 @@
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">Query Id</th>
+        <th scope="col">Student Number</th>
+        <th scope="col">Query Type</th>
+        <th scope="col">Date Time</th>
+        <th scope="col">Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% try {%>
+    <% if (AccountsData.length > 0) { %>
+        <% AccountsData.forEach(accResult => { %>
+            <tr>
+                <th scope="row"><%= accResult.query_id%></th>
+                <td><%= accResult.std_no %></td>
+                <td><%= accResult.query_type%></td>
+                <td><%= accResult.datetime%></td>
+                <td><%= accResult.query_status%></td>
+            </tr>
+        <% }) %>
+    <% } %>
+    <%} catch(err){ %>
+        <script>
+            location.reload()
+        </script>
+    <% } %>
+    </tbody>
+</table>

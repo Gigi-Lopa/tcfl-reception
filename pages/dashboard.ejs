@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/vendor/boxicons/css/boxicons.css">
+    <link rel="stylesheet" href="/vendor/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/jquery-ui.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body onload="getWork(), preloader()">
+  <!-- START PRE LOADER-->  
+  <div id="preloader">
+    <div class="gify">
+
+    </div>
+  </div>
+  <style>
+    #preloader{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    background-size: cover;
+    z-index: 99999;
+  }
+  .gify{
+    background-image: url("/images/pink-preloader.gif");
+    background-position: center;
+    background-attachment: fixed;
+    height: 70%;
+    width:50%;
+  }
+
+  </style>
+  <script>
+
+    var preloadervar = document.getElementById("preloader")
+    function preloader(){
+       preloadervar.style.display = "none";
+       console.log("Display Gon");
+        
+    }
+  </script>
+<nav class="navbar navbar-expand-lg navbar-light nav-style">
+  <a class="navbar-brand" style="margin: right 0;" href="/home/"><img src="/images/kallyas-logo.svg" alt="TCFL LOGO" width="30%" height="30%" srcset=""></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+         <div class="nav-content">
+            <span class="bi-question-circle"></span>
+          </div>
+          <a class="nav-link item" href="/home/">Queries</a>
+      </li>
+      <li class="nav-item">
+         <div class="nav-content">
+            <span class="bi-vector-pen"></span>
+          </div>
+          <a class="nav-link item" href="/rec/notes/">Notes</a>
+      </li>
+       <li class="nav-item">
+         <div class="nav-content">
+            <span class="bi-journal-bookmark" style="position: relative;bottom:10%"></span>
+          </div>
+          <a class="nav-link item" href="/course_details/">Course Details</a>
+      </li>
+       <li class="nav-item active">
+         <div class="nav-content">
+            <span class="bi-journal-bookmark" style="position: relative;bottom:10%"></span>
+          </div>
+          <a class="nav-link item active" href="/dashboard/">Dashboard</a>
+      </li>
+      
+    </ul>
+
+  </div>
+</nav>
+<div class="page-content">
+    <div class="container">
+        <div id="tabs">
+            <ul>
+                <li><a href="#tabs-4">Result Department</a></li>
+                <li><a href="#tabs-5">Account Department</a></li>
+                <li><a href="#tabs-6">Student Affairs</a></li>
+                <li><a href="#tabs-7">Recent Work</a></li>
+                <li><a href="#tabs-8">Credentials</a></li>
+            </ul>
+            <div id="tabs-4">
+                <div class="container width-lg">
+                 <div class="table-responsive">
+                   <%- include("results_tb")%>
+                 </div>
+                </div>
+            </div>
+            <div id="tabs-5">
+                <div class="table-responsive">
+                    <%- include("acc")%>
+                </div>
+            </div>  
+            <div id="tabs-6">
+                <div class="table-responsive">
+                    <%- include("std_affair")%>
+                </div>
+            </div>
+            <div id="tabs-7">
+                <div class="table-responsive">
+                  <%- include("recent_work") %>
+                </div>
+            </div>
+            <div id="tabs-8">
+                <%- include("creditionals")%>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="/vendor/jquery/jquery.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.js"></script>
+<script src="/js/jquery-ui.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/fetch-work.js"></script>
+</body>
+</html>
